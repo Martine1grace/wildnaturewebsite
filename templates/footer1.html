@@ -1,0 +1,66 @@
+{% load static %}
+  {% block extrahead %}
+  
+  <link href="{% static 'css/footer_css.css' %}" rel="stylesheet">
+  
+  {% endblock extrahead %}
+
+    <section style="height:80px;"></section>
+
+    <!----------- Footer ------------>
+    <footer class="footer-bs" style="background-color:#016839 ;">
+        <div class="row">
+        	<div class="col-md-4 footer-brand animated fadeInLeft">
+            	<h4><strong> Wild Nature Discovery</strong></h4>
+                <p style="font-size: 15px;">Wild Nature Discovery ltd personnel are professionally trained and experienced in local tourism industry and conservation as we worked for several years in Rwanda National Parks as tourist guides and speak fluently English, French & Swahili.
+                    Apart from designing tailor made tour packages for domestic, inbound and outbound tourists, we also excel into Ticketing (both domestic and international), Worldwide Hotel bookings, car rental, museums as well as memorial tours are also included in our services.</p>
+                    
+                </div>
+        	<div class="col-md-2 footer-nav animated fadeInUp">
+            	<h4><strong>Quick Menu —</strong></h4>
+            	
+            	<!-- <div class="col-md-6"> -->
+                    <ul class="list">
+                        <li><a href="{% url 'home' %}" style="font-size: 15px;">Home</a></li>
+                        <li><a href="{% url 'home' %}#services" style="font-size: 15px;">Services</a></li>
+                        <li><a href="{% url 'home' %}#tour_packages" style="font-size: 15px;">Tour Packages </a></li>
+                        <li><a href="{% url 'about_us' %}" style="font-size: 15px;">About Us</a></li>
+                        <li><a href="{% url 'contact_us' %}" style="font-size: 15px;">Contacts</a></li>
+                        <!-- <li><a href="#" style="font-size: 15px;">Terms & Condition</a></li>
+                        <li><a href="#" style="font-size: 15px;">Privacy Policy</a></li> -->
+                    </ul>
+                <!-- </div> -->
+            </div>
+        	<div class="col-md-2 footer-social animated fadeInDown">
+            	<h4><strong>Follow Us—</strong></h4>
+            	<ul>
+                	<li><a href="#" class="twitter" style="font-size: 15px;" target="_blank"><i class="bx bxl-twitter" ></i> Twitter</a></li>
+                	<li><a href="https://web.facebook.com/WILD-Nature-Discovery-936966749774888/" class="facebook" style="font-size: 15px;" target="_blank"><i class="bx bxl-facebook"></i>Facebook</a></li>
+                	<li><a href="#" class="instagram" style="font-size: 15px;" target="_blank"><i class="bx bxl-instagram" ></i>Instagram</a></li>
+                </ul>
+            </div>
+        	<div class="col-md-4 footer-social animated fadeInDown">
+            	<!-- <div class="col-md-6"> -->
+                    <h4><strong>Contact Us —</strong></h4>
+                    <ul>
+                        <li><a class="twitter" style="font-size: 15px;"><i class="bi bi-geo-alt"></i> KG 11 AV 55 Promise House</a></li>
+                        <li><a  class="twitter" style="font-size: 15px;"><i class="bi bi-telephone-inbound"></i> +250783588810</a></li>
+                        <li><a class="twitter" style="font-size: 15px;"><i class="bi bi-telephone-inbound"></i> +250782254972</a></li>
+                	    <li><a class="facebook" style="font-size: 15px;"><i class="bi bi-envelope"></i> info.wildnaturediscovery@gmail.com</a></li>
+                      
+                    </ul>
+                    <a href="https://www.digitalocean.com/?refcode=5f587d64d3f6&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%202.svg" alt="DigitalOcean Referral Badge" /></a>
+            </div>
+        </div>
+        <br><br>
+        <center>
+            <p style="font-size: 15px;">Copyright &copy;2019 - 2021 <strong><span>Wild Nature Discovery</span></strong>. All Rights Reserved</p>
+        </center>
+
+    </footer>
+    {% comment %} <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="#">Philippe</a></p></section> {% endcomment %}
+  {% block extrascripts %}
+  
+
+
+  {% endblock extrascripts %}

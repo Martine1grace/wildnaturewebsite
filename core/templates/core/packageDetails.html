@@ -1,0 +1,131 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static '/css/tabsCss/tab.css'%}">
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Tour Package Details</h2>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Tour Package Details</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-7">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="">
+                  <!-- <div class="swiper-slide"> -->
+                  <img src="{{package.packageImage.url}}" alt="">
+                </div>
+
+                <!-- <div class="swiper-slide">
+                  <img src="{% static 'img/slide/slide-111.jpg' %}" alt="">
+                </div> -->
+
+                <!-- <div class="swiper-slide">
+                  <img src="{% static 'img/slide/akagera.jpg' %}" alt="">
+                </div> -->
+
+              </div>
+              <!-- <div class="swiper-pagination"></div> -->
+            </div>
+          </div>
+          
+
+          <div class="col-lg-5">
+            <div class="portfolio-info">
+              <h3>Tour Package Information</h3>
+              <ul>
+                <li><strong>Tour Package Name</strong>: {{package.package_name}}</li>
+                <li><strong>Days to travel</strong>: {{package.days_to_travel}} days</li>
+                <li><strong>Tour Highlights</strong>: Below</li>
+                <li><strong>Tour Rates</strong>: {{package.ratings}}</li>
+              </ul>
+            </div>  
+          </div>
+        </div>
+        <div class="portfolio-description">
+          <center><h2><strong class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874; margin-top: -20px" >{{package.country.name}} Package</strong> || {{package.package_name}}</h2></center>
+          <p>
+            {{package.package_desc}}
+          </p>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+
+
+    <section id="portfolio-details" class="portfolio-details">
+      
+      <div class="container">
+        <h2 class="text-center"><strong>Day by Day Activities</strong></h2> <br>
+        {% for tour_day in tour_days %}
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+            {% comment %} <div class="portfolio-details-slider swiper"> {% endcomment %}
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="{{tour_day.day_image.url}}" alt="" width="500" style="border-radius: 3px;">
+                </div>
+                
+
+              </div>
+              
+            {% comment %} </div> {% endcomment %}
+          </div>
+
+          <div class="col-lg-6">
+            <div class="portfolio-info">
+             
+              <ul>
+                <li><strong>{{tour_day.day_name}}</strong></li>
+                <li><strong>{{tour_day.day_title}}</strong> </li><br>
+                <p>
+                  {{tour_day.day_desc}} (<strong>{{tour_day.place_name}}</strong>).
+                </p>
+                <li><strong> Destination:</strong> {{tour_day.place_name}}</li>
+              </ul>
+            </div>
+            
+          </div><br>
+
+        </div>
+        {% comment %} <h2>{{tour_day.day_title}}</h2> {% endcomment %}
+        <!-- <div class="portfolio-description">
+          
+          
+        </div> -->
+        {% endfor %}
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+   
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}
+
+
+

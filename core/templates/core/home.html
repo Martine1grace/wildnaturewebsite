@@ -1,0 +1,478 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<!-- ======= Hero Section ======= -->
+  <section id="hero" >
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide 1 -->
+       {% for slider in sliders %}
+        <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}" style="background-image: url('{{slider.slide_image.url}}')">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Discover with us</h2>
+              <p class="animate__animated animate__fadeInUp text-center" style="font-size: 25px;"><strong>{{slider.slide_title}}</strong></p>
+              <p class="animate__animated animate__fadeInUp">{{slider.slide_descr}}</p>
+           </div>
+          </div>
+        </div>
+       {% endfor %}
+
+        <!-- Slide 2 -->
+
+        <!-- <div class="carousel-item active" style="background-image: url({% static 'img/slide/lion and cub.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Discover with us</h2>
+              <p class="animate__animated animate__fadeInUp text-center" style="font-size: 25px;"><strong>AKAGERA NATIONAL PARK</strong></p>
+              <p class="animate__animated animate__fadeInUp">Central Africa’s largest protected wetland and the last remaining refuge for savannah-adapted species in Rwanda.</p>
+              
+            </div>
+          </div>
+        </div> -->
+        <!-- Slide 3 -->
+        <!-- <div class="carousel-item" style="background-image: url({% static 'img/slide/neo-africa-gorillas.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Discover with us</h2>
+              <p class="animate__animated animate__fadeInUp text-center" style="font-size: 25px;"><strong>MOUNTAIN GORILLA</strong></p>
+              <p class="animate__animated animate__fadeInUp">Home of the endangered mountain gorilla and a rich mosaic of montane ecosystems</p>
+             
+              
+            </div>
+          </div>
+        </div> -->
+        <!-- Slide 4 -->
+        <!-- <div class="carousel-item" style="background-image: url({% static 'img/slide/canopy-walkway.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Discover with us</h2>
+              <p class="animate__animated animate__fadeInUp text-center" style="font-size: 25px;"><strong>NYUNGWE NATIONAL PARK</strong></p>
+              <p class="animate__animated animate__fadeInUp">One of the oldest rainforests in Africa and home of chimpanzees and 12 other species of primate.</p>
+              
+              
+            </div>
+          </div>
+        </div> -->
+        <!-- Slide 5 -->
+        <!-- <div class="carousel-item" style="background-image: url({% static 'img/slide/kigalicity.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Discover with us </h2>
+              <p class="animate__animated animate__fadeInUp text-center" style="font-size: 25px;"><strong>Kigali city Tour</strong></p>
+              <p class="animate__animated animate__fadeInUp">The capital of Rwanda, the economic and administrative center of the country.</p>
+              
+             
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+<!-- ======= Portfolio Section ======= -->
+<section id="packages" class="portfolio" >
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Our Packages</h2>
+      <!--<p>Check out our latest discounted safari packages.</p>-->
+    </div>
+
+  </div>
+
+
+  <div class="container my-4">
+
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+    
+      <center>
+        <!--Controls-->
+      {% comment %} <div class="controls-top">
+        <a class="btn btn-sm btn-success" style="width: 40px; height: 40px;" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left" style="margin-top: 8px;"></i></a>
+        <a class="btn btn-sm btn-success" style="width: 40px; height: 40px;" href="#multi-item-example" data-slide="next"><i
+            class="fas fa-chevron-right" style="margin-top: 8px;"></i></a>
+      </div> {% endcomment %}
+      <!--/.Controls-->
+      </center>
+      <br>
+    
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+        <li data-target="#multi-item-example" data-slide-to="1"></li>
+        
+      </ol>
+      <!--/.Indicators-->
+    
+      
+      
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+    
+        <!--First slide-->
+        <div class="carousel-item active">
+          {% for package in tour_packages %}
+          <div class="col-md-3 mr-2" style="float:left; height: 450px;">
+           <div class="card mb-2">
+              <img class="card-img-top"
+                src="{{package.packageImage.url}}" alt="Card image cap" style="border-radius: 5px;">
+              <div class="card-body">
+                <strong class="btn btn-primary" style="background-color: #ED9F03; border-color:#0000;  margin-top: -100px" >{{package.country.name}}</strong>
+                <h4 class="card-title" style="font-size: 22px;"> {{package.package_name}} </h4>
+                <p class="card-text">{{package.package_desc|slice:":100"}}{% if package.package_desc|length > 100 %}...{% endif %}</p>
+                <center><a href="{% url 'package_details' package.id %}" class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874; margin-top: -20px;">View more</a></center>
+              </div><br>
+            </div>
+          </div>
+          {% endfor %}
+    
+    
+        </div>
+        <!--/.Second slide-->
+    
+       
+    
+      </div>
+      <!--/.Slides-->
+      <div class="pagination">
+        <span class="step-links">
+            {% if tour_packages.has_previous %}
+                <a href="?page=1">&laquo; first Page</a>
+                <a href="?page={{ tour_packages.previous_page_number }}#packages">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ tour_packages.number }} of {{ tour_packages.paginator.num_pages }}.
+            </span>
+    
+            {% if tour_packages.has_next %}
+                <a href="?page={{ tour_packages.next_page_number }}#packages">next Page</a>
+                <a href="?page={{ tour_packages.paginator.num_pages }}#packages">last Page &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+   <!-- <center><p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" href="allpackage_details">View All Packages</a></center> -->
+        </div>
+    <!--/.Carousel Wrapper-->
+    </div>    
+</section><!-- End Portfolio Section -->
+    
+    
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta" style="background-image: url({% static 'img/slide/background.jpg' %});">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3>Let's start planning</h3>
+            <p> Tailor-made African safari.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{% url 'contact_us' %}">Enquire Now</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+<!-- ======= Services Section ======= -->
+<section id="activity" class="services" >
+  <div class="container">
+
+    <div class="section-title">
+      <h2>ACTIVITIES BEYOND NATIONAL PARKS </h2>
+      <!--<p>These are all the services that we offer for our clients all over the country.</p>-->
+    </div>
+
+    <div class="row">
+      {% for service in services %}
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-black">
+          <div class="icon">
+            <!-- <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+              <path stroke="none" stroke-width="0" fill="#47aeff" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+            </svg>
+      <i class="{{service.service_class_name}}"></i> -->
+      <!-- aha -->
+      <img class="rounded mx-auto d-block" src="{{service.serviceImage.url}}"  alt="service" width="200px" height="100px">
+          </div>
+          <h4><a href="" style="color:darkgreen;">{{service.service_name}}</a></h4>
+          <p>{{service.sevice_desc}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section><!-- End Services Section -->
+    
+
+
+<!-- ======= Portfolio Section ======= -->
+<section id="destination" class="portfolio">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Main Destinations </h2>
+      <!--<p>These are the main destionations to travel in Rwanda.</p>--->
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="portfolio-flters">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-rw">Rwanda</li>
+          <li data-filter=".filter-tan">Tanzania</li>
+          <li data-filter=".filter-ug">Uganda</li>
+          <li data-filter=".filter-bu">Burundi</li>
+          <li data-filter=".filter-drc">DRC</li>         
+          <li data-filter=".filter-ken">Kenya</li>
+          <!-- <button class="btn btn-success">Uganda</button>
+          <button class="btn btn-success">Rwanda</button>          
+          <button class="btn btn-success">DRC</button>
+          <button class="btn btn-success">Tanzania</button>
+          <button class="btn btn-success">Kenya</button>
+          <button class="btn btn-success">Burundi</button> -->
+          
+
+        </ul><br><br><br><br>
+      </div>
+    </div>
+
+    <div class="row portfolio-container">
+      <!-- {% for destination in destionations %}
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+          <img src="{{ destination.destinationImage.url }}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>{{destination.location}}</h4>
+            <p>{{destination.slogan}}</p>
+            <div class="portfolio-links">
+              <a href="{% static 'img/portfolio/bisoke-mountain.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %} -->
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-tan">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/climbing-kilimanjaro.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/tanzania.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Mount Kilimanjaro</h4>
+            <p>Mount Kilimanjaro is Africa's highest peak (5,895 m) and Tanzania's most iconic image. </p>
+   
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-drc">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/Mount-Nyiragongo.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/drc.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Mount Nyiragongo</h4>
+            <p>Mount Nyiragongo is an active stratovolcano with an elevation of 3,470 m in the Virunga Mountains associated with the Albertine Rift.</p>
+            
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-lg-4 col-md-6 portfolio-item filter-ug">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/gorilla-family.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/uganda.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Bwindi Impenetrable National Park </h4>
+            <p>There are 44 habituated mountain gorilla families across Uganda, Rwanda and the DRC. Family groups range in size with an average of 10 family members.</p>
+           
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-rw">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/kivu kaya.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/rwanda.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Lake Kivu </h4>
+            <p>Kayaking trips can be booked at any time. The best weather is almost always early morning and often later in the afternoon.</p>
+            
+          </div>
+        </div>
+      </div>
+
+      
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-rw">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/waterfall.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/rwanda.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Nyungwe Forest National Park</h4>
+            <p>Come with us, and we see the beauty of our nature.</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-rw">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/volcano.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/rwanda.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Volcanoes National Park</h4>
+            <p>Come with us and we discover the beauty of our country nature.</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-tan">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/SerengetiNational.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/tanzania.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Serengeti national park</h4>
+            <p>Serengeti National Park is at the heart the larger Serengeti ecosystem, which is defined by the area covered by the annual migration.</p>
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item filter-ug">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/Uganda-safaris.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/uganda.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Lake Mburo National Park</h4>
+            <p>Lake Mburo National park is amazingly the closest national park to Kampala , it also doubles as the smallest national park. Situated between Masaka and Mbarara district   taking approximately 4 hours’ drive time to arrive. The park covers an area of 370km² including the lakes ( 5 lakes). </p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item filter-rw">
+        <div class="portfolio-wrap">
+      
+          <img src="{% static 'img/portfolio/king palace.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/rwanda.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>nyanza king's palace</h4>
+            <p>The king’s Palace Museum is based in Nyanza District, Southern Province,88 km from Kigali City.</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item filter-bu">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/tanganyika.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/burundi.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Lake Tanganyika</h4>
+            <p>Lake Tanganyika, second largest of the lakes of eastern Africa. It is the longest freshwater lake in the world (410 miles [660 km]).</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item filter-ken">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/Safari-Masai-Mara.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/kenya.png' %}" style="width: 40px; height: 30px;margin-top: -100px ">
+            <h4>Maasai Mara National</h4>
+            <p>Maasai Mara National Reserve is an area of preserved savannah wilderness in southwestern Kenya, along the Tanzanian border.</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item filter-ken">
+        <div class="portfolio-wrap">
+          <img src="{% static 'img/portfolio/Amboseli-National.jpg' %}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <img src="{% static 'img/kenya.png' %}" style="width: 40px; height: 30px;margin-top: -50px ">
+            <h4>Amboseli National Park</h4>
+            <p>Amboseli was originally established as a game reserve in 1948 and covered 1,259 square miles (3,261 square km) northwest of Kilimanjaro in Tanzania. </p>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Destinations Section -->
+ <!-- ======= Cta Section ======= -->
+ <section id="cta" class="cta" style="background-image: url({% static 'img/slide/lioness.jpg' %});">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 text-center text-lg-start">
+        <h3>Let's start planning</h3>
+        <p> Tailor-made African safari.</p>
+      </div>
+      <div class="col-lg-3 cta-btn-container text-center">
+        <a class="cta-btn align-middle" href="{% url 'contact_us' %}">Enquire Now</a>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Cta Section -->
+
+<section id="hotels" class="portfolio">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Hotels in Partnerships</h2>
+      <p>These are the hotels that we are working with.</p>
+    </div>
+  {% include 'hotels.html' %}
+
+        <!-- ======= Our Clients Section ======= -->
+        <section id="partern" class="clients" >
+          <div class="container">
+    
+            <div class="section-title">
+              <h2>MEMBERSHIP AFFILIATION</h2>
+            <!--  <p>These are our parternership companies to work with.</p>-->
+            </div>
+    
+            <div class="clients-slider ">
+              <div class="swiper-wrapper align-items-center">
+                <div ><img src="{% static 'img/clients/rtta.jpg' %}" class="img-fluid" alt=""></div>
+                <div ><img src="{% static 'img/clients/rsga.png' %}" class="img-fluid" alt=""></div>
+                <div ><img src="{% static 'img/clients/rdb.jpg' %}" class="img-fluid" alt=""></div>
+                <div ><img src="{% static 'img/clients/safari.jpg' %}" class="img-fluid" alt=""></div>
+                <div ><img src="{% static 'img/clients/tripad.png' %}" class="img-fluid" alt=""></div>
+                <div ><img src="{% static 'img/clients/apta.jfif' %}" class="img-fluid" alt=""></div>
+                <div ><img src="{% static 'img/clients/ATTA.jpg' %}" class="img-fluid" alt=""></div>
+                
+              </div>
+              <!-- <div class="swiper-pagination"></div> -->
+            </div>
+    
+          </div>
+        </section>
+        <!-- End Our Clients Section -->
+
+  
+  </main><!-- End #main -->
+
+{% endblock content %}
+

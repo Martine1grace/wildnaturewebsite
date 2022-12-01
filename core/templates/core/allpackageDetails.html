@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% block extrahead %}
+  <link href="{% static 'css/hotels.css' %}" rel="stylesheet">
+{% endblock extrahead %}
+ <!-- ======= Cta Section ======= -->
+ <br><br><section id="cta" class="cta" style="background-image: url({% static 'img/slide/backhotel.jpg' %});">
+
+  <div class="carousel-inner" role="listbox">
+    
+    <!--First slide-->
+    <div class="carousel-item active">
+      {% for package in tour_packages %}
+      <div class="col-md-3 mr-2" style="float:left; height: 450px;">
+       <div class="card mb-2">
+          <img class="card-img-top"
+            src="{{package.packageImage.url}}" alt="Card image cap" style="border-radius: 5px;">
+          <div class="card-body">
+            <h4 class="card-title" style="font-size: 22px;">{{package.package_name}}</h4>
+            <p class="card-text">{{package.package_desc|slice:":100"}}{% if package.package_desc|length > 100 %}...{% endif %}</p>
+            <a href="{% url 'package_details' package.id %}" class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;">View more</a>
+          </div><br>
+        </div>
+      </div>
+      {% endfor %}
+
+
+    </div>
+    <!--/.Second slide-->
+
+   
+
+  </div>
+
+
+
+</section><!-- End Cta Section -->
+{% block extrascripts %}
+<script src="{% static 'js/hotels.js' %}"></script>
+{% endblock extrascripts %}
+{% endblock content %}    

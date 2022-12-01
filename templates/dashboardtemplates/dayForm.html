@@ -1,0 +1,59 @@
+{% extends 'dashboardtemplates/maindashboard.html' %} {% block title %}add day action{% endblock %} {% block body %}
+
+
+
+<div class="content-dashboard">
+  <div class="row card shadow-sm mt-4 pb-4 p-4 ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h3 class="mb-4 text-centered text-success text-uppercase">Fill this form to {{title}} day action</h3>
+
+      <!-- <a href="#" class="btn btn-primary" style="float: right;">Add Pharmacist</a> <br> <br> -->
+
+      {{ form.non_field_errors}}{{form.media}}
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+                <label for="{{ form.day_name.id_for_label }}">Day Name </label><span style="color:red;">*</span>
+                {{form.day_name}} {% for error in form.day_name.errors %}
+                <span class="text-danger">{{error}}</span> {% endfor %}
+              </div>
+            <div class="form-group">
+              <label for="{{ form.day_title.id_for_label }}">Day Title </label><span style="color:red;">*</span>
+              {{form.day_title}} {% for error in form.day_title.errors %}
+              <span class="text-danger">{{error}}</span> {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.place_name.id_for_label }}">Day Place Name </label><span style="color:red;">*</span>
+                {{form.place_name}} {% for error in form.place_name.errors %}
+                <span class="text-danger">{{error}}</span> {% endfor %}
+            </div>
+            
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <div class="form-group">
+                <label for="{{ form.day_image.id_for_label }}">Day Image </label><span style="color:red;">*</span>
+                {{form.day_image}} {% for error in form.day_image.errors %}
+                <span class="text-danger">{{error}}</span> {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.day_desc.id_for_label }}">Day description </label><span style="color:red;">*</span>
+                {{form.day_desc}} {% for error in form.day_desc.errors %}
+                <span class="text-danger">{{error}}</span> {% endfor %}
+            </div>
+            
+          </div>
+        </div>
+        
+        <a href="javascript:history.go(-1)" class="btn btn-outline-success mt-2 text-size-sm px-5">Cancel</a>
+        <input type="submit" value="{{title}}" class="btn btn-success mt-2 px-5">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'dashboardtemplates/maindashboard.html' %} {% block title %}add package{% endblock %} {% block body %}
+
+
+
+<div class="content-dashboard">
+  <div class="row card shadow-sm mt-4 pb-4 p-4 ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h3 class="mb-4 text-centered text-success text-uppercase">Fill this form to {{title}} tour package</h3>
+
+      <!-- <a href="#" class="btn btn-primary" style="float: right;">Add Pharmacist</a> <br> <br> -->
+
+      {{ form.non_field_errors}}{{form.media}}
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="{{ form.package_name.id_for_label }}">Package Name </label><span style="color:red;">*</span>
+              {{form.package_name}} {% for error in form.package_name.errors %}
+              <span class="text-danger">{{error}}</span> {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.package_slogan.id_for_label }}">Package Slogan </label><span style="color:red;">*</span>
+                {{form.package_slogan}} {% for error in form.package_slogan.errors %}
+                <span class="text-danger">{{error}}</span> {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.ratings.id_for_label }}">Package Ratings </label><span style="color:red;">*</span>
+                {{form.ratings}} {% for error in form.ratings.errors %}
+                <span class="text-danger">{{error}}</span> {% endfor %}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.packageImage.id_for_label }}">Package Image </label><span style="color:red;">*</span>
+              {{form.packageImage}} {% for error in form.packageImage.errors %}
+              <span class="text-danger">{{error}}</span> {% endfor %}
+          </div>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="{{ form.main_place.id_for_label }}">Main Place</label><span style="color:red;">*</span>
+              {{form.main_place}} {% for error in form.main_place.errors %}
+              <p class="text-danger"> {{error}}</p>
+              {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.days_to_travel.id_for_label }}">Package Days</label><span style="color:red;">*</span>
+                {{form.days_to_travel}} {% for error in form.days_to_travel.errors %}
+                <p class="text-danger"> {{error}}</p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.packagePrice.id_for_label }}">Package Price</label><span style="color:red;">*</span>
+                {{form.packagePrice}} {% for error in form.packagePrice.errors %}
+                <p class="text-danger"> {{error}}</p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.package_desc.id_for_label }}">Package Description</label><span style="color:red;">*</span>
+              {{form.package_desc}} {% for error in form.package_desc.errors %}
+              <p class="text-danger"> {{error}}</p>
+              {% endfor %}
+          </div>
+          </div>
+        </div>
+        
+        <a href="javascript:history.go(-1)" class="btn btn-outline-success mt-2 text-size-sm px-5">Cancel</a>
+        <input type="submit" value="{{title}}" class="btn btn-success mt-2 px-5">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

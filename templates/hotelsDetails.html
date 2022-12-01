@@ -1,0 +1,162 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% block extrahead %}
+  <link href="{% static 'css/hotels.css' %}" rel="stylesheet">
+{% endblock extrahead %}
+ <!-- ======= Cta Section ======= -->
+ <br><br><section id="cta" class="cta" style="background-image: url({% static 'img/slide/backhotel.jpg' %});">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-start"></br>
+          <h3>HOTELS</h3> 
+          <p> These are the hotels that we are working with.</p>
+        </div>
+        <div class="col-lg-3 cta-btn-container text-center">
+          <a class="cta-btn align-middle" href="{% url 'home' %}">Home</a>
+        </div>
+      </div>
+  
+    </div>
+  </section><br>
+  <!-- End Cta Section -->
+<div class="row">
+        <!-- {% for hotel in hotels %}
+    <div class="col-lg-4">
+             <div class="cardcontainer">
+                 <div class="photo"> <img src="{{hotel.hotelImage.url}}">
+                     
+                 </div>
+                 <div class="content">
+                     <p class="txt4"> <strong>{{hotel.name}}</strong></p>
+                 <br>
+                     <p class="txt2">{{hotel.description}}</p>
+                 </div>
+                    <div class="footer">
+                     <p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" href="#">{{hotel.location}}</a></p>
+                 </div>
+             </div>
+    </div>
+    {% endfor %} -->
+    <div class="col-lg-4">
+        
+        <div class="cardcontainer">
+            <div class="photo"> <img src="{% static 'img/clients/cher lando.jpg' %}">
+                
+            </div>
+            <div class="content">
+                <p class="txt4"> <strong>Cher Lando Hotel</strong></p>
+            </br>
+                <p class="txt2">In a commercial area, this informal hotel in a redbrick building is 3 km from Kigali International Airport, 8 km from the Kigali Genocide Memorial Centre and 9 km from the Kandt House
+                   Museum of Natural History.
+                   
+                    </p>
+            </div>
+               <div class="footer">
+                <p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" <a class="cta-btn align-middle" href="{% url 'contact_us' %}">Book Now</a></p>
+            </div>
+        </div>
+</div>
+<div class="col-lg-4">
+   
+        <div class="cardcontainer">
+            <div class="photo"> <img src="{% static 'img/clients/millecol.jpg' %}">
+                
+            </div>
+            <div class="content">
+               <p class="txt4"> <strong>Mille Collines</strong></p>
+           </br>
+               <p class="txt2">Hôtel des Mille Collines offers one of the most breathtaking views over the hills of Kigali.</p>
+            </div>
+            <div class="footer">
+                <p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" <a class="cta-btn align-middle" href="{% url 'contact_us' %}">Book Now</a></p></div>
+        </div>
+</div>
+    <div class="col-lg-4">
+        
+             <div class="cardcontainer">
+                 <div class="photo"> <img src="{% static 'img/clients/marriot.jpeg' %}">
+                     
+                 </div>
+                 <div class="content">
+                     <p class="txt4"> <strong>Marriott Hotel</strong></p>
+                 <br>
+                     <p class="txt2">Experience Rwanda's capital from Kigali Marriott Hotel, conveniently located near the Nyarugenge financial district and the Kigali Convention Center. </p>
+                 </div>
+                    <div class="footer">
+                     <p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" href="#">Nyarugenge - Kigali</a></p>
+                 </div>
+             </div>
+    </div><br><br>
+    <div class="col-lg-4">
+        
+             <div class="cardcontainer">
+                 <div class="photo"> <img src="{% static 'img/clients/Radisson-Kigali.jpg' %}">
+                     
+                 </div>
+                 <div class="content">
+                    <p class="txt4"> <strong>Radisson Blu Hotel</strong></p>
+                <br>
+                    <p class="txt2">The Radisson Blu Hotel & Convention Center in Kigali is just 5 kilometers from the bustling city center and Kigali International Airport.</p>
+                 </div>
+                 <div class="footer">
+                     <p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" href="#">Gasabo - Kigali</a></p></div>
+             </div>
+    </div><br><br>
+    <div class="col-lg-4">
+      
+             <div class="cardcontainer">
+                 <div class="photo"> <img src="{% static 'img/clients/saintfamille.jpg' %}">
+                     
+                 </div>
+                 <div class="content">
+                    <p class="txt4"><strong>Sainte Famille Hotel</strong></p>
+                <br>
+                    <p class="txt2">Set in Kigali, 2.3 km from Belgian Peacekeepers Memorial, Sainte Famille Hotel offers accommodation with a restaurant, free private parking, a fitness centre and a bar.</p>
+                 </div>
+                 <div class="footer">
+                     <p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" href="#">Nyarugenge - Kigali</a></p>
+                 </div>
+             </div>
+    </div><br><br>
+    <div class="col-lg-4">
+      
+        <div class="cardcontainer">
+            <div class="photo"> <img src="{% static 'img/clients/serena hotel.jpg' %}">
+                
+            </div>
+            <div class="content">
+               <p class="txt4"><strong>Serena Hotel</strong></p>
+           <br>
+               <p class="txt2">Lake Kivu Serena Hotel celebrates the shores of this African Great Lake as a destination of astonishing beauty, hospitality and relaxation at our tropically inspired hotel in Gisenyi.</p>
+            </div>
+            <div class="footer">
+                <p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" href="#">Western Province - Rwanda</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+      
+        <div class="cardcontainer">
+            <div class="photo"> <img src="{% static 'img/clients/bisate.jpg' %}">
+                
+            </div>
+            <div class="content">
+               <p class="txt4"><strong>Bisate Lodge</strong></p>
+           </br> 
+               <p class="txt2">From your sumptuous villa on the slopes of an eroded volcanic crater, designed in the traditions of Rwandan royalty, gaze through a curtain of mist at two extinct volcanoes, Bisoke and Karisimbi</p>
+            </div>
+            <div class="footer">
+                <p><a class="btn btn-primary" style="background-color: #5cb874; border-color: #5cb874;" <a class="cta-btn align-middle" href="{% url 'contact_us' %}">Book Now</a></p>
+            </div>
+        </div>
+</div>
+    
+    <br>
+</div>
+
+</section><!-- End Cta Section -->
+{% block extrascripts %}
+<script src="{% static 'js/hotels.js' %}"></script>
+{% endblock extrascripts %}
+{% endblock content %}

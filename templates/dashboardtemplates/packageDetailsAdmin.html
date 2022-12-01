@@ -1,0 +1,88 @@
+{% extends 'dashboardtemplates/maindashboard.html' %} 
+{% block title %} package detail {% endblock title %} {% block body %}
+<div class="row">
+    <div class="col-md-8">
+        <a href="{% url 'tour_packages'%}" class="btn btn-sm px-5 mb-2" style="background-color: #000; color: #fff">Back</a>
+        <h3 class="text-dark text-uppercase">Tour Package Detail Page</h3>
+        <div class="card shadow-sm p-4 pb-7">
+
+            <h5 class="text-success">Package Name:</h5>
+            <p class="text-dark">{{package.package_name}}</p>
+            <h5 class="text-success">Package Description:</h5>
+            <p class="text-dark">{{package.package_desc}}</p>
+            <h5 class="text-success">package_slogan:</h5>
+            <p class="text-dark">{{package.package_slogan}}</p>
+            <h5 class="text-success">Days To Travel:</h5>
+            <p class="text-dark">{{package.days_to_travel}} days</p>
+            <h5 class="text-success">Tou Package Price:</h5>
+            <p class="text-dark">{{package.packagePrice}} $</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="p-4 mt-3">
+            <h3 class="text-info mb-4">Actions</h3>
+            {% comment %} <a href="{% url 'update_beneficiary' pk=beneficiary.id %}" class="btn btn-success form-control mb-4">Edit</a> {% endcomment %}
+            {% comment %} <a style="cursor: pointer;" class="btn btn-info form-control mb-4 text-white" data-id="{{beneficiary.id}}" onclick="showDialog(this)">Delete</a>
+            <a id="delete"></a> {% endcomment %}
+            <a href="{%  url 'delete_package' package.id %}" class="btn btn-success form-control mb-4 text-white">Edit Package</a>
+            <a href="{% url 'add_day_action' package.id %}" class="btn btn-dark form-control mb-4 text-white">Add day action</a>
+            <a href="#" class="btn btn-danger form-control mb-4 text-white">Delete Package</a>
+
+
+
+        </div>
+    </div>
+</div>
+<h3 class="text-dark text-uppercase">Tour Package Day Actions</h3>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Day Title</th>
+                    <th scope="col">Place Name</th>
+                    <th scope="col">Day Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%if tour_days %}{% for new in tour_days %}
+                <tr>
+                    <td>{{ new.day_name|slice:"30" }}{% if new.day_name|length > 30 %}...{% endif %}
+                    <td>{{ new.day_title|slice:"25" }}{% if new.day_title|length > 25 %}...{% endif %}
+                    </td>
+                    <td>{{ new.place_name|slice:"25" }}{% if new.place_name|length > 25 %}...{% endif %}</td>
+                    <td>{{ new.day_desc|slice:"45" }}{% if new.day_desc|length > 45 %}...{% endif %}</td>
+                </tr>
+                {% endfor %} {% else %}
+                <tr>
+                    <td colspan="2">
+                        <p class="text-centered ">No Data to Display</p>
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    async function showDialog(item) {
+        await Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#218838',
+            cancelButtonColor: '#0085CA',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById("delete").href = "/beneficiary/" + item.getAttribute('data-id') + "/delete";
+                document.getElementById("delete").click()
+            }
+        })
+    };
+</script>
+
+{% endblock body %} 

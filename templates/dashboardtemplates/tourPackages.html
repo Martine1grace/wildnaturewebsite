@@ -1,0 +1,57 @@
+{% extends 'dashboardtemplates/maindashboard.html' %}
+{% block title %}tour packages{% endblock %}
+{% block body %}
+
+<div class="content-dashboard">
+    <h3 class="text-uppercase text-dark">list of tour packages</h3>
+    <a class="btn btn-primary mt-1 mb-1" href="{% url 'add_package' %}" style="text-decoration: none;">Add
+        Tour Package</a>
+    <div class="row">
+            {% comment %} {% include 'generic/filter_form.html' %} {% endcomment %}
+
+        <div class="col-md-12 card shadow-sm  pb-7 p-4">
+            <table class="table table-hover">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Package Name</th>
+                        <th scope="col">Package Description</th>
+                        <th scope="col">Package Slogan</th>
+                        <th scope="col">Travel Days</th>
+                        <th scope="col">Package Price</th>
+                        <th scope="col">Main Place</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%if tour_packages %}{% for new in tour_packages %}
+                    <tr style='cursor: pointer;' onclick="window.location='{% url 'package_detail' pk=new.id %}';">
+                    {% comment %} <tr style='cursor: pointer;'> {% endcomment %}
+                        <td>{{ new.package_name|slice:"30" }}{% if new.package_name|length > 30 %}...{% endif %}
+                        <td>{{ new.package_desc|slice:"25" }}{% if new.package_desc|length > 25 %}...{% endif %}
+                        </td>
+                        <td>{{ new.package_slogan|slice:"25" }}{% if new.package_slogan|length > 25 %}...{% endif %}</td>
+                        <td>{{ new.days_to_travel|slice:"20" }}{% if new.days_to_travel|length > 20 %}...{% endif %}</td>
+                        <td>{{ new.packagePrice|slice:"20" }}{% if new.packagePrice|length > 20 %}...{% endif %}</td>
+                        <td>{{ new.main_place|slice:"30" }}{% if new.main_place|length > 30 %}...{% endif %}</td>
+
+                    </tr>
+                    {% endfor %} {% else %}
+                    <tr>
+                        <td colspan="2">
+                            <p class="text-centered ">No Data to Display</p>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            {% comment %} {% include 'generic/paginator.html' %} {% endcomment %}
+        </div>
+    </div>
+</div>
+<script>
+</script>
+
+{% endblock body %}
+
+
+

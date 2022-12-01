@@ -1,0 +1,50 @@
+{% extends 'dashboardtemplates/maindashboard.html' %}
+{% block title %}services{% endblock %}
+{% block body %}
+
+<div class="content-dashboard">
+    <h3 class="text-uppercase text-dark">list of Other Activities</h3>
+    <a class="btn btn-primary mt-1 mb-1" href="{% url 'add_service' %}" style="text-decoration: none;">Add
+        Activity</a>
+    <div class="row">
+            {% comment %} {% include 'generic/filter_form.html' %} {% endcomment %}
+
+        <div class="col-md-12 card shadow-sm  pb-7 p-4">
+            <table class="table table-hover">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Activity Name</th>
+                        <th scope="col">Activity Class Name</th>
+                        <th scope="col">Activity Description</th>
+                        <th scope="col">Date Added</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%if services %}{% for new in services %}
+                    {% comment %} <tr style='cursor: pointer;' onclick="window.location='{% url 'detail_beneficiary' pk=new.id %}';"> {% endcomment %}
+                    <tr style='cursor: pointer;'>
+                        <td>{{ new.service_name|slice:"30" }}{% if new.service_name|length > 30 %}...{% endif %}
+                        <td>{{ new.service_class_name|slice:"35" }}{% if new.service_class_name|length > 35 %}...{% endif %}
+                        </td>
+                        <td>{{ new.sevice_desc|slice:"30" }}{% if new.sevice_desc|length > 30 %}...{% endif %}</td>
+                        <td>{{ new.date_added|slice:"20" }}{% if new.packagePrice|length > 20 %}...{% endif %}</td>
+
+                    </tr>
+                    {% endfor %} {% else %}
+                    <tr>
+                        <td colspan="2">
+                            <p class="text-centered ">No Data to Display</p>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            {% comment %} {% include 'generic/paginator.html' %} {% endcomment %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

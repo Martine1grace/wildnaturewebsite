@@ -1,0 +1,157 @@
+{% load static %}
+<!-- ======= Header ======= -->
+
+  <header id="header" class="d-flex align-items-center">
+
+
+    <div class="container d-flex align-items-center">
+
+       <!-- <h1 class="logo me-auto"><a href="{% url 'home' %}"><img src="{% static 'img/wildlogo.jpeg' %}" style="width: 100%; height: 100%;"  alt=""></a></h1>-->
+      <!-- Uncomment below if you prefer to use an image logo -->
+     <a href="{% url 'home' %}" ><img src="{% static 'img/wildlogo.png' %}" alt="" style="width: 150px; margin-top: 81px; margin-left: -60px;" ></a>
+
+      <nav id="navbar" class="navbar">
+                <ul>
+          <li><a class="nav-link scrollto active" style="margin-left: -20px;" href="{% url 'home' %}"><strong><b>HOME</b></strong></a></li>
+         <!-- <div class="dropdown"> -->
+          <li><a class="{% if 'package_details' in request.path %} nav-link scrollto active {% endif %} " 
+            href="{% url 'home' %}#packages"><strong><b>TOUR PACKAGES</b></strong></a></li>
+          <li><a class="{% if '#activity' in request.path %} nav-link scrollto active {% endif %}" href="{% url 'home' %}#activity"><strong ><b>OTHER ACTIVITIES</b> </strong></a></li>
+          <li><a class="{% if '#portfolio' in request.path %} nav-link scrollto active {% endif %}" href="{% url 'home' %}#destination"><strong><b>DESTINATIONS</b></strong></a></li>
+          <!-- <li><a class="{% if 'contact_us' in request.path %} nav-link scrollto active {% endif %}" href="{% url 'contact_us' %}"><strong><b>CONTACT US</b></strong></a></li> -->
+          <li><a class="{% if 'about_us' in request.path %} nav-link scrollto active {% endif %}" href="{% url 'about_us' %}"><strong><b>ABOUT US</b></strong></a></li>
+          <li><a class="{% if 'about_us' in request.path %} nav-link scrollto active {% endif %} getstarted scrollto" href="{% url 'contact_us' %}"><strong><b>ENQUIRE NOW</b></strong></a></li>
+         
+        </ul>
+
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+    
+  </header><!-- End Header -->
+
+<!-- <div class="dropdown-c">
+              <div class="under">
+              <ul>
+               <li> <h3>RWANDA <img src="{% static 'img/rwanda.png' %}"> </h3></li>
+                <div class="footer">
+               <div class="content"> 
+                <li>rwanda Jamuhuri ya Burundi; French: République du Burundi, [buʁundi] or [byʁyndi]), is a landlocked country in the Great Rift Valley where the African Great Lakes region and East Africa converge. It is bordered by Rwanda to the north, Tanzania to the east and southeast, and</li></div>
+                <div class="content"> 
+                <li>rwanda</li></div>
+                <div class="content"> 
+                <li>rwanda</li></div>
+               <div class="content"> 
+                <li>rwanda</li></div>
+                <div class="content"> 
+                <li>rwanda</li></div>
+                <div class="content"> 
+                <li>rwanda</li></div>
+                </div>
+         </ul>
+         <ul>
+           
+             
+               <li> <h3>KENYA <img src="{% static 'img/kenya.png' %}"></h3></li>
+                <div class="footer">
+               
+                <div class="content"> 
+                <li>Kenya rwanda Jamuhuri ya Burundi; French: République du Burundi, [buʁundi] or [byʁyndi]), </li></div>
+                <div class="content"> 
+                <li>Kenya </li></div>
+                <div class="content"> 
+                <li>Kenya </li></div>
+                <div class="content"> 
+                <li>Kenya </li></div>
+                <div class="content"> 
+                <li>Kenya </li></div>
+                <div class="content"> 
+                <li>Kenya </li></div>
+                </div>
+         </ul>
+         <ul>
+           
+             
+               <li> <h3>BURUNDI <img src="{% static 'img/burundi.png' %}"></h3></li>
+                <div class="footer">
+               
+               <div class="content"> 
+                <li>Burundi rwanda Jamuhuri ya Burundi; French: République du Burundi, [buʁundi] or [byʁyndi]),</li></div>
+                 <div class="content"> 
+                <li>Burundi </li></div>
+                 <div class="content"> 
+                <li>Burundi </li></div>
+                <div class="content"> 
+                <li>Burundi </li></div>
+                <div class="content"> 
+                <li>Burundi </li></div>
+               <div class="content"> 
+                <li>Burundi </li></div>
+                </div>
+         </ul>
+         <ul>
+           
+             
+               <li> <h3>CONGO<img src="{% static 'img/rdc.png' %}"></h3></li>
+                <div class="footer">
+               
+                <div class="content"> 
+                <li>Congo rwanda Jamuhuri ya Burundi; French: République du Burundi, [buʁundi] or [byʁyndi]),</li></div>
+                <div class="content"> 
+                <li>Congo </li></div>
+                <div class="content"> 
+                <li>Congo </li></div>
+                <div class="content"> 
+                <li>Congo </li></div>
+               <div class="content"> 
+                <li>Congo </li></div>
+               <div class="content"> 
+                <li>Congo </li></div>
+                </div>
+         </ul>
+     
+         <ul>
+           
+             
+               <li> <h3>UGANDA<img src="{% static 'img/uganda.png' %}"></h3></li>
+                <div class="footer">
+               
+                 <div class="content"> 
+                <li>Uganda rwanda Jamuhuri ya Burundi; French: République du Burundi, [buʁundi] or [byʁyndi]),</li></div>
+                <div class="content"> 
+                <li>Uganda </li></div>
+                <div class="content"> 
+                <li>Uganda </li></div>
+               <div class="content"> 
+                <li>Uganda </li></div>
+                <div class="content"> 
+                <li>Uganda </li></div>
+               <div class="content"> 
+                <li>Uganda </li></div>
+                </div>
+         </ul>
+         
+                  </div>
+                  <ul>
+           
+             
+               <li> <h3>TANZANIA<img src="{% static 'img/tanzania.png' %}"></h3></li>
+                <div>
+                <div class="content"> 
+                <li>Tanzania </li></div>
+                <div class="content"> 
+                <li>Tanzania </li></div>
+                <div class="content"> 
+                <li>Tanzania </li></div>
+                <div class="content"> 
+                <li>Tanzania </li></div>
+                <div class="content"> 
+                <li>Tanzania </li></div>
+                <div class="content"> 
+                <li>Tanzania rwanda Jamuhuri ya Burundi; French: République du Burundi, [buʁundi] or [byʁyndi]), </li></div>
+                </div>
+         </ul>
+         
+                  </div>
+                </div> -->

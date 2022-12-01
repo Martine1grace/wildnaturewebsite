@@ -1,0 +1,94 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+
+    <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2></h2>
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>About Us</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2 style="color: darkgreen;">WELCOME TO WILD NATURE DISCOVERY</h2><br><br>
+            <p style="font-size: medium;"></p> Wild Nature Discovery is an independent tours and safaris operator based in Kigali (Rwanda) and operating in East Africa. All our staff are professionally trained and experienced in local tourism industry and conservation and we worked for several years in the national parks in Rwanda and speak fluently English, French & Swahili.You arrive as a guest, you leave as a friend!.</p>
+          </div><br><br>
+  
+          <div class="row">
+            
+            <div class="col-lg-6 ">
+              
+            <center><h3 style="color: darkgreen;"><strong>Vision</strong></h3></center><br>
+              <p style="font-size: medium; margin-right: 50px;">
+                Our vision is to be the most effective and efficient Tours and Safaris Company in Eastern Africa. We endeavor to offer affordable, complete and the most comfortable travel solutions. In addition, we are committed to respect our clients, the quality of the service provided, ensure customer satisfaction.
+              </p> <br><br><br>  
+              <center><h3 style="color: darkgreen;"><strong>Services</strong></h3></center><br>
+              <p style="font-size: medium; margin-right: 50px;">
+                We do provides short excursions, extended safaris, and tours tailor-made to individuals, couples, families, friends & groups of people from all over the world.
+                We offer quality safaris with reliability and high integrity such as Primate trekking (Gorillas, Chimpanzees, Golden monkey, Colobus etc. ) and other wildlife species, Eco-Safaris, Bird Watching, boat trip, Family Holidays, Tented camping ,Hiking, City tours, Museums and other memorial centers visit, Cultural Tours, community guided tours etc. We also do reservations for lodging and airfare.
+                
+              </p><br>          
+                  
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2">
+              <center><h3 style="color: darkgreen;"><strong>Objectives</strong></h3></center><br>
+
+              <ul>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> Continuously provide enjoyable quality excursions/trips on time and on budget.</li>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> Develop enthusiastically satisfied customers all of the time.</li>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> Establish a market presence that assures short-term and long-term profitability, growth and success.</li>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> We are fully committed to supporting growth and development in the tourism and overall economy of Rwanda.</li>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> Contribute positively to our communities and our environment.</li> 
+              </ul><br>                     
+              <img src="{% static 'img/slide/neo-africa-gorillas.jpg' %}" style="border-radius: 5px; height:250px; width: 500px;" class="img-fluid" alt=""><br><br><br><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+            <center><h3 style="color: darkgreen;"><strong>Our Fleet And Transportation</strong></h3></center><br><br><br>
+              <p style="font-size: medium; margin-right: 50px;">
+                Our fleet is mainly made by land cruiser 4x4 vehicles converted in five & Seven- seater safari vehicles and designed to the customer's comfort, standard and expectations.
+                These vehicles are the ideal for African safaris. They are equipped with:
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> Extra raised side windows for better viewing. A window seat is guaranteed for each client.</li>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> UV tinted toughen glass.</li>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> Super Deluxe seats designed for comfort, safety (seat belts), enhanced leg room for long distance travel.</li>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> Full-length photographic roof hatches.</li>
+                <li><i class="bi bi-check-circle" style="color: darkgreen;"></i> Electric Inverters and power outlets 240 AC allowing clients to continue working on laptops or load different devices (phones, cameras, laptops, etc. ...) during the journey. For larger movements e.g. conferences and meetings we use our 32 seater coaches.</li> 
+              </ul></div>
+            <div class="row" style="display: flex;">
+              <div class="col-lg-4" >
+                <img src="{% static 'img/slide/car.jpeg' %}" style="border-radius: 5px; height:300px; width: 500px;" class="img-fluid" alt=""><br><br>
+              </div>
+              <div class="col-lg-4">            
+            <img src="{% static 'img/slide/car 1.jpeg' %}" style="border-radius: 5px; height:300px; width: 500px;" class="img-fluid" alt=""><br><br>
+            </div>
+            <div class="col-lg-4">
+            <img src="{% static 'img/slide/car 2.jpeg' %}"  style="border-radius: 5px; height:300px; width: 500px;" class="img-fluid" alt=""><br><br>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section><!-- End About Us Section -->
+  
+</main>
+
+{% endblock content %}
